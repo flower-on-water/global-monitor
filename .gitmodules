@@ -1,0 +1,3 @@
+[submodule "src/extensions/bitcoin"]
+	path = extensions/bitcoin
+	url = https://github.com/flower-on-water/global-monitor-ext-bitcoin.git
