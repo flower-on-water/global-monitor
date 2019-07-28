@@ -5,11 +5,14 @@ import {
   createProtocol,
   installVueDevtools
 } from 'vue-cli-plugin-electron-builder/lib'
-const isDevelopment = process.env.NODE_ENV !== 'production'
+
+import extensions from './extensions'
+import config from '../config/default.json'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win: BrowserWindow | null
+const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{scheme: 'app', privileges: { secure: true, standard: true } }])
@@ -46,6 +49,8 @@ app.on('window-all-closed', () => {
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
+
+    extensions.deactivate()
   }
 })
 
@@ -70,6 +75,8 @@ app.on('ready', async () => {
     }
   }
   createWindow()
+
+  extensions.activate()
 })
 
 // Exit cleanly on request from parent process in development mode.
