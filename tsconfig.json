@@ -9,13 +9,16 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "baseUrl": ".",
     "types": [
       "webpack-env",
       "jest"
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
@@ -25,7 +28,6 @@
       "esnext",
       "dom",
       "dom.iterable",
-      "scripthost"
     ]
   },
   "include": [
