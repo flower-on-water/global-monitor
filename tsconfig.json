@@ -10,7 +10,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
-    "noUnusedParameters": true,
     "removeComments": true,
     "sourceMap": true,
     "resolveJsonModule": true,
