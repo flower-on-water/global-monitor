@@ -33,9 +33,9 @@ function createWindow () {
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL as string)
     if (!process.env.IS_TEST) win.webContents.openDevTools()
   } else {
-    createProtocol('app')
+    createProtocol('global-monitor')
     // Load the index.html when not in development
-    win.loadURL('app://./index.html')
+    win.loadURL('global-monitor://./index.html')
   }
 
   win.on('closed', () => {
