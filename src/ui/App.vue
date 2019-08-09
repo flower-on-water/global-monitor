@@ -1,8 +1,16 @@
 <template>
-  <div id="app" />
+  <v-app />
 </template>
 
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class App extends Vue {
+}
+</script>
+
 <style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
+html
+  overflow-y: auto !important
 </style>
