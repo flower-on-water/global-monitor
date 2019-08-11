@@ -15,6 +15,7 @@ yarn-error.log*
 .idea
 # https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
 .vscode/*
+!.vscode/vetur
 !.vscode/tasks.json
 !.vscode/launch.json
 *.suo
