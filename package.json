@@ -5,8 +5,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "gcz": "npx git-cz",
-    "gczr": "npx git-cz --retry",
+    "gcz": "HUSKY_SKIP_HOOKS=1 git-cz",
+    "gczr": "HUSKY_SKIP_HOOKS=1 git-cz --retry",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:version": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify --sign",
