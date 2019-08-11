@@ -9,7 +9,7 @@
     "gczr": "npx git-cz --retry",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:version": "standard-version --no-verify --sign",
+    "build:version": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify --sign",
     "build:changelog": "conventional-changelog --config node_modules/cz-conventional-changelog angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "build:docs": "typedoc --out build_docs/ --readme ./README.md --excludeExternals --includeDeclarations",
     "lint": "vue-cli-service lint",
