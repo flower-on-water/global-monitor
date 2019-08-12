@@ -27,6 +27,9 @@ module.exports = {
     parser: '@typescript-eslint/parser',
   },
   settings: {
+    'import/resolver': {
+      "typescript": {},
+    },
     // https://www.npmjs.com/package/eslint-plugin-import#importcore-modules
     'import/core-modules': [
       'electron'
