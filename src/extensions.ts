@@ -3,13 +3,7 @@ import path from 'path';
 
 import log from './log';
 
-interface IExtensionContext {
-}
-
-interface IExtension {
-  activate(context: IExtensionContext): void
-  deactivate(): void
-}
+import { IExtension, IExtensionContext } from './typings/extensions';
 
 const context: IExtensionContext = {};
 const extensionsPull: IExtension[] = [];
