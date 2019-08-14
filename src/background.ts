@@ -1,16 +1,13 @@
 import { app, protocol, BrowserWindow } from 'electron';
-import {
-  createProtocol,
-  installVueDevtools,
-} from 'vue-cli-plugin-electron-builder/lib';
+import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 
+import env from './env';
 import extensions from './extensions';
 
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win: BrowserWindow | null;
-const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: true, standard: true } }]);
@@ -29,7 +26,6 @@ function createWindow() {
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL as string);
-    if (!process.env.IS_TEST) win.webContents.openDevTools();
   } else {
     createProtocol('global-monitor');
     // Load the index.html when not in development
@@ -60,34 +56,14 @@ app.on('activate', () => {
   }
 });
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
-  if (isDevelopment && !process.env.IS_TEST) {
-    // Install Vue Devtools
-    try {
-      await installVueDevtools();
-    } catch (e) {
-      console.error('Vue Devtools failed to install:', e.toString());
-    }
-  }
   createWindow();
 
   extensions.activate();
-});
 
-// Exit cleanly on request from parent process in development mode.
-if (isDevelopment) {
-  if (process.platform === 'win32') {
-    process.on('message', (data) => {
-      if (data === 'graceful-exit') {
-        app.quit();
-      }
-    });
-  } else {
-    process.on('SIGTERM', () => {
-      app.quit();
-    });
+  if (env.isDev) {
+    const { default: { init } } = await import('./dev');
+
+    init(app, win!);
   }
-}
+});
