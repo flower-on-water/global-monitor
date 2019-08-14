@@ -5,6 +5,8 @@ import log from './log';
 
 import { IExtension, IExtensionContext } from './typings/extensions';
 
+const logger = log.get(log.Domain.Ext);
+
 const context: IExtensionContext = {};
 const extensionsPull: IExtension[] = [];
 
@@ -24,12 +26,12 @@ async function activate() {
             extensionsPull.push(extension);
           })
           .catch((e) => {
-            log.warn(e, `Extension '${extensionDir}' don't loaded`);
+            logger.warn(`Extension '${extensionDir}' don't loaded`, e);
           });
       }
     });
   } catch (e) {
-    log.warn(e, "Extensions don't loaded");
+    logger.warn("Extensions don't loaded", e);
   }
 }
 

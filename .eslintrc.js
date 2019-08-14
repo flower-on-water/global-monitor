@@ -21,7 +21,8 @@ module.exports = {
         'max': 5,
         'allowFirstLine': false
       }
-    }]
+    }],
+    'lines-between-class-members': 'off',
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',

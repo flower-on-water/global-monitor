@@ -1,3 +1,5 @@
-export as namespace log
+import { Logger } from 'winston';
 
-export {};
+export interface ILog {
+  get(domain: string): Logger
+}
