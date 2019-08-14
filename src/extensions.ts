@@ -20,7 +20,7 @@ async function activate() {
       if (dir.isDirectory) {
         const extensionDir = dir.name;
 
-        import(`../extensions/${extensionDir}/main`)
+        import(`../extensions/${extensionDir}/index`)
           .then(({ default: extension }: {default: IExtension}) => {
             extension.activate(context);
             extensionsPull.push(extension);

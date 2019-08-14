@@ -1,5 +1,3 @@
-'use strict';
-
 import { app, protocol, BrowserWindow } from 'electron';
 import {
   createProtocol,
@@ -8,7 +6,6 @@ import {
 
 import extensions from './extensions';
 
-import config from '../config/default.json';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
