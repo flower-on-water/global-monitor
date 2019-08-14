@@ -22,7 +22,8 @@ async function init(app: App, win: BrowserWindow) {
   try {
     await installVueDevtools();
 
-    win.webContents.openDevTools();
+    // use setImmediate for fix load vue tool with components
+    win.webContents.once('dom-ready', () => win.webContents.openDevTools());
   } catch (e) {
     logger.error('Vue Devtools failed to install');
   }
