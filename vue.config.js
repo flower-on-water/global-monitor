@@ -3,6 +3,22 @@
  *  @type { Options }
  */
 module.exports = {
+  pluginOptions: {
+    electronBuilder: {
+      outputDir: 'dist',
+      mainProcessFile: './src/main.ts',
+      mainProcessWatch: ['src/*.ts'],
+      /**
+       * @param config { import('webpack-chain') }
+       */
+      chainWebpackRendererProcess: (config) => {
+        config
+          .entry('app')
+          .clear()
+          .add('./src/renderer/index.ts');
+      },
+    },
+  },
   chainWebpack(config) {
     config
       .plugin('VuetifyLoaderPlugin')
@@ -26,7 +42,7 @@ module.exports = {
             return null;
           }
 
-          return [camelTag, `import ${camelTag} from '@/ui/components/${camelTag}.vue'`];
+          return [camelTag, `import ${camelTag} from '@/renderer/components/${camelTag}.vue'`];
         }
 
         updatedArgs[0].match = match;
