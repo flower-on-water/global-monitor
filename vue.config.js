@@ -1,6 +1,5 @@
 /**
- *  @typedef { import("@vue/cli-service").ProjectOptions } Options
- *  @type { Options }
+ *  @type { import("@vue/cli-service").ProjectOptions }
  */
 module.exports = {
   pluginOptions: {
