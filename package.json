@@ -21,7 +21,7 @@
   },
   "main": "background.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.1",
+    "@mdi/font": "^4.0.96",
     "chalk": "^2.4.2",
     "core-js": "^3.2.1",
     "lodash-es": "^4.17.15",
