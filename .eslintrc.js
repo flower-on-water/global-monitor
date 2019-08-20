@@ -16,20 +16,28 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/max-attributes-per-line': ['error', {
-      'singleline': 5,
+      'singleline': 7,
       'multiline': {
-        'max': 5,
+        'max': 7,
         'allowFirstLine': false
       }
     }],
     'lines-between-class-members': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'no-unused-expressions': ['error', {
+      'allowTernary': true,
+      'allowShortCircuit': true,
+    }],
+    'no-param-reassign': ['error', {
+      'props': false,
+    }],
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',
   },
   settings: {
     'import/resolver': {
-      "typescript": {},
+      'typescript': {},
     },
     // https://www.npmjs.com/package/eslint-plugin-import#importcore-modules
     'import/core-modules': [
