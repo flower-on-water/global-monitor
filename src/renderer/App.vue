@@ -1,5 +1,7 @@
 <template>
-  <v-app />
+  <v-app>
+    <v-gm-window-bar />
+  </v-app>
 </template>
 
 <script lang="ts">
